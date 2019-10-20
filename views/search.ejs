@@ -1,0 +1,24 @@
+<% include partials/header %>
+
+<div class="container">
+	<h1>Sallve Movies</h1>
+
+	<form>
+		<input class="text-input" type="text" placeholder="find a movie" name="search">
+		<input class="submit-input" type="submit" value="Search">
+	</form>
+</div>
+
+<% if (query) { %>
+		<% data["Search"].forEach(function(movie) { %>
+			<a class="d-block" href="/results">
+				<strong>
+					<%= movie["Title"] %>
+				</strong>
+				 - <%= movie["Year"] %>
+			</a>
+		<% }) %>
+	<% } %>	
+
+
+<% include partials/footer %>

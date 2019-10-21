@@ -12,45 +12,54 @@
 <div class="results-container container"></div>
 
 <div id="details" class="details-container container">
-	<div class="row align-items-center">
+	<div class="first-row row">
 		<div class="col-sm-10">
 			<h1 class="movie-title"></h1>
 		</div>
-		<div class="col-sm-2 d-flex justify-content-end">
+		<div class="col-sm-2 d-none d-sm-flex justify-content-end pt-2">
 			<a class="sallve-btn d-flex justify-content-center align-items-center" href="/">Back</a>
 		</div>
 	</div>
-	<div class="row">
+	<div class="second-row row">
 		<div class="col-sm-8">
-			<h5 class="date-genre"></h5>
+			<p class="date-genre"></p>
 		</div>
 		<div class="col-sm-4 text-right">
-			<h5 class="awards"></h5>
+			<p class="awards"></p>
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-sm-4">
+	<div class="third-row row">
+		<div class="col-sm-4 d-flex">
 			<img class="poster" src="">
 		</div>
 		<div class="col-sm-8">
-			<h5>Plot: </h5><p class="plot"></p>
-			<h5>Actors: </h5><p class="actors"></p>
-			<h5>Director: </h5><p class="director"></p>
-			<h5>Writer: </h5><p class="writer"></p>
-		</div>
-	</div>
+			<div class="content-wrapper">
+				<h5>Plot: </h5><p class="plot"></p>
+			</div>
+			<div class="content-wrapper">
+				<h5>Actors: </h5><p class="actors"></p>
+			</div>
+			<div class="content-wrapper">
+				<h5>Director: </h5><p class="director"></p>
+			</div>
+			<div class="content-wrapper">
+				<h5>Writer: </h5><p class="writer"></p>
+			</div>
 
-	<h2>Ratings</h2>
-	<div class="row">
-		<div class="col-6">
-			<h5 class="first-source"></h5>
-			<h5 class="first-rating"></h5>
-		</div>
-		<div class="col-6">
-			<h5 class="second-source"></h5>
-			<h5 class="second-rating"></h5>
+			<h2 class="text-center">Ratings</h2>
+			<div class="row">
+				<div class="col-6">
+					<h5 class="first-source"></h5>
+					<h5 class="first-rating"></h5>
+				</div>
+				<div class="col-6">
+					<h5 class="second-source"></h5>
+					<h5 class="second-rating"></h5>
+				</div>
+			</div>
 		</div>
 	</div>
+	<a class="sallve-btn d-flex d-sm-none justify-content-center align-items-center" href="/">Back</a>
 </div>
 
 <% include partials/footer %>

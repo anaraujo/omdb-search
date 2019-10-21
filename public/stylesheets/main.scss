@@ -23,16 +23,40 @@ body {
 		text-decoration: none;
 	}
 
+	h1 {
+		@include sm-screen-down {
+			font-size: 24px;
+		}
+	}
+
+	h2 {
+		@include sm-screen-down {
+			font-size: 20px;
+		}
+	}
+
+	h5 {
+		@include sm-screen-down {
+			font-size: 16px;
+		}
+	}
+
+	p {
+		@include sm-screen-down {
+			font-size: 12px;
+		}
+	}
+
 	.sallve-btn {
 		height: 36px;
-	  	width: 100px;
+	  width: 100px;
 		border: 0;
-	  	background: #9F77FF;
-	    color: white;
-	    box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.5);
-	    -webkit-appearance: unset;
-	   	-moz-appearance: unset;	
-      	appearance: unset;
+  	background: #9F77FF;
+    color: white;
+    box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.5);
+    -webkit-appearance: unset;
+   	-moz-appearance: unset;	
+    	appearance: unset;
 
       	&:hover,
       	&:focus,
@@ -56,11 +80,11 @@ body {
 
 		h1 {
 			font-size: 88px;
-		    margin-bottom: 56px;
+		  margin-bottom: 56px;
 
-		    @include md-screen-down {
-					font-size: 40px;
-		    }
+	    @include md-screen-down {
+				font-size: 40px;
+	    }
 		}
 
 		form {
@@ -100,16 +124,62 @@ body {
 
 	.results-container {
 		max-width: 100vw;
-	    padding: 0 80px;
+    padding: 0 80px;
 
-	    a {
-	    	margin-bottom: 16px;
-	    }
+    a {
+    	margin-bottom: 16px;
+    }
+
+    @include sm-screen-down {
+    	padding: 0 16px;
+    }
 	}
 
 	.details-container {
 		display: none;
 		margin-top: 32px;
+
+		.first-row, 
+		.second-row {
+			@include sm-screen-down {
+				* {
+					text-align: center;
+				}
+			}
+		}
+
+		.second-row {
+			padding: 8px 0 32px;
+		}
+
+		.third-row {
+			h2 {
+				margin-bottom: 24px; 
+			}
+
+			img {
+				@include sm-screen-down {
+					width: 80%;
+					margin: 0 auto 32px;
+				}
+			}
+
+			.content-wrapper {
+				margin-bottom: 32px; 
+
+				@include sm-screen-down {
+					margin-bottom: 16px; 
+				}
+
+				h5 {
+					margin-right: 4px;
+				}
+
+				h5, p {
+					display: inline;
+				}
+			}
+		}
 	}
 
 	#reduced {
@@ -132,6 +202,10 @@ body {
 	    	.text-input {
 	    		width: 70%;
 	    	}
+	    }
+
+	    @include sm-screen-down {
+	    	padding: 20px 16px;
 	    }
 
 	  	@include md-screen-down {

@@ -42,21 +42,29 @@ function displayOneMovie(data) {
     $('.actors').text(data.Actors);
     $('.director').text(data.Director);
     $('.writer').text(data.Writer);
-    $('.first-source').text(data.Ratings[0].Source);
-    $('.first-rating').text(data.Ratings[0].Value);
-    $('.second-source').text(data.Ratings[1].Source);
-    $('.second-rating').text(data.Ratings[1].Value);
 
-    detailsContainer.addClass('d-block');
+    if(data.Ratings[0]) {
+    	$('.first-source').text(data.Ratings[0].Source);
+	    $('.first-rating').text(data.Ratings[0].Value);	
+    }
+
+    if(data.Ratings[1]) {
+		 	$('.second-source').text(data.Ratings[1].Source);
+    	$('.second-rating').text(data.Ratings[1].Value);
+    }
+
+    searchContainer.addClass('d-none');
+		resultsContainer.addClass('d-none');
+		detailsContainer.addClass('d-block');
   }
 }
 
 
 function watchSubmit() {
 	$('form').submit(function (e) {
-		searchContainer.attr('id', 'reduced');
 		apiUrl = "http://omdbapi.com/?apikey=a3a773d5&s=";
 	  var query = $('.text-input').val();
+	  searchContainer.attr('id', 'reduced');
 	  getDataFromApi(query, displayAllMovies);
 	});
 }	 
@@ -64,9 +72,6 @@ function watchSubmit() {
 $(function(){watchSubmit();});
 
 function loadDetailsPage(id) {
-	searchContainer.addClass('d-none');
-	resultsContainer.addClass('d-none');
-
 	apiUrl = "http://omdbapi.com/?apikey=a3a773d5&i=";
   getDataFromApi(id, displayOneMovie);
 }

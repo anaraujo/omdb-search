@@ -1,69 +1,62 @@
-@mixin sm-screen-down {
-   @media (max-width: 576px) {
-       @content;
-   }
-}
-@mixin md-screen-down {
-   @media (max-width: 768px) {
-       @content;
-   }
-}
+@import 'shared/mixins';
+@import 'shared/variables';
+
+html {
+	@include md-screen-down {
+		font-size: 12px;
+	}
+}	
 
 body {
-	background-color: #FFC6AF;
-	color: #333333;
+	background-color: $primary-orange;
+	color: $primary-gray;
 	font-family: 'Poppins', sans-serif;
 
-	a {
-		color: #333333;
+	h1 { font-size: 5.5rem; }
+	h4 { font-size: 2rem; }
+	h5 { font-size: 1.25rem; }
+	h6, p, a, button { font-size: 1rem; }
+
+	.content-img {
+		width: 100%;
+
+		@include sm-screen-down {
+			width: 80%;
+			margin: 0 auto 32px;
+		}
 	}
 
-	h1, a:hover {
-		color: #9F77FF;
+	h1, h4,
+	.content-link:hover {
+		color: $primary-purple;
 		text-decoration: none;
 	}
 
-	h1 {
-		@include sm-screen-down {
-			font-size: 24px;
-		}
+	.content-link {
+		color: $primary-gray;
 	}
 
-	h2 {
-		@include sm-screen-down {
-			font-size: 20px;
-		}
-	}
-
-	h5 {
-		@include sm-screen-down {
-			font-size: 16px;
-		}
-	}
-
-	p {
-		@include sm-screen-down {
-			font-size: 12px;
-		}
-	}
-
-	.sallve-btn {
+	.content-btn {
 		height: 36px;
 	  width: 100px;
 		border: 0;
-  	background: #9F77FF;
-    color: white;
+  	background: $primary-purple;
+    color: $white;
     box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.5);
     -webkit-appearance: unset;
    	-moz-appearance: unset;	
-    	appearance: unset;
+    appearance: unset;
 
-      	&:hover,
-      	&:focus,
-      	&:active {
-      		background: white;
-      		color: #9F77FF;
-      	}
+  	&:hover,
+  	&:focus,
+  	&:active {
+  		background: $white;
+  		color: $primary-purple;
+  	}
+
+  	@include md-screen-down {
+	    height: 28px;
+  	}
 	}
 
 	.search-container {
@@ -79,12 +72,7 @@ body {
 		}
 
 		h1 {
-			font-size: 88px;
 		  margin-bottom: 56px;
-
-	    @include md-screen-down {
-				font-size: 40px;
-	    }
 		}
 
 		form {
@@ -157,13 +145,6 @@ body {
 				margin-bottom: 24px; 
 			}
 
-			img {
-				@include sm-screen-down {
-					width: 80%;
-					margin: 0 auto 32px;
-				}
-			}
-
 			.content-wrapper {
 				margin-bottom: 32px; 
 
@@ -186,7 +167,7 @@ body {
 		height: unset;
 		max-width: 100vw;
 	    margin: 0 auto;
-	    padding: 20px 80px;
+	    padding: 20px 80px 40px;
 	    flex-direction: row;
 	    justify-content: space-between;
 	    transition: height 4s;
@@ -226,10 +207,8 @@ body {
 			    }
 
 			    .submit-input {
-			    	height: auto;
 				    width: 72px;
 			    	margin: 0;
-				    font-size: 16px;
 			    }
 	    	}
 	    }

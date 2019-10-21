@@ -1,11 +1,11 @@
-var searchContainer = $(".search-container");
-var resultsContainer = $(".results-container");
-var detailsContainer = $(".details-container");
+var searchContainer = $('.search-container');
+var resultsContainer = $('.results-container');
+var detailsContainer = $('.details-container');
 var apiUrl;
 
-function getDataFromApi(searchTerm, callback) {
+function getData(term, callback) {
   var settings = {
-    url: apiUrl + searchTerm,
+    url: apiUrl + term,
     data: {
       r: 'json',
     },
@@ -21,15 +21,15 @@ function displayAllMovies(data) {
   if (data.Search) {
     data.Search.forEach(function(item) {
     	clickFunction = "loadDetailsPage('" + item.imdbID + "')";
-    	resultElement += '<a class="d-block" href="#details" onclick="' + clickFunction+ '"><strong>' + item.Title + '</strong> (' + item.Year + ')</a>';
+    	resultElement += '<a class="content-link d-block" href="#" onclick="' + clickFunction + '"><strong>' + item.Title + '</strong> (' + item.Year + ')</a>';
     });
   }
   else {
     resultElement += '<p>No results</p>';
   }
-  teste = data.Search;
 
-  $('.results-container').html(resultElement);  
+  searchContainer.attr('id', 'reduced');
+  resultsContainer.html(resultElement);  
 }
 
 function displayOneMovie(data) {
@@ -59,19 +59,13 @@ function displayOneMovie(data) {
   }
 }
 
-
-function watchSubmit() {
-	$('form').submit(function (e) {
-		apiUrl = "http://omdbapi.com/?apikey=a3a773d5&s=";
-	  var query = $('.text-input').val();
-	  searchContainer.attr('id', 'reduced');
-	  getDataFromApi(query, displayAllMovies);
-	});
-}	 
-
-$(function(){watchSubmit();});
+function loadResultsPage() {
+  var query = $('.text-input').val();
+  apiUrl = "http://omdbapi.com/?apikey=a3a773d5&s=";
+  getData(query, displayAllMovies);
+}
 
 function loadDetailsPage(id) {
 	apiUrl = "http://omdbapi.com/?apikey=a3a773d5&i=";
-  getDataFromApi(id, displayOneMovie);
+  getData(id, displayOneMovie);
 }

@@ -1,24 +1,56 @@
 <% include partials/header %>
 
-<div class="container">
-	<h1>Sallve Movies</h1>
+<div class="search-container container">
+	<a href="/"><h1>Sallve Movies</h1></a>
 
-	<form>
+	<form onsubmit="return false;"> 
 		<input class="text-input" type="text" placeholder="find a movie" name="search">
 		<input class="submit-input" type="submit" value="Search">
 	</form>
 </div>
 
-<% if (query) { %>
-		<% data["Search"].forEach(function(movie) { %>
-			<a class="d-block" href="/results">
-				<strong>
-					<%= movie["Title"] %>
-				</strong>
-				 - <%= movie["Year"] %>
-			</a>
-		<% }) %>
-	<% } %>	
+<div class="results-container container"></div>
 
+<div id="details" class="details-container container">
+	<div class="row">
+		<div class="col-sm-6">
+			<h1 class="movie-title"></h1>
+		</div>
+		<div class="col-sm-6">
+			<a href="/">Back</a>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-6">
+			<h3 class="date-gender"></h3>
+		</div>
+		<div class="col-sm-6">
+			<h3 class="awards"></h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-4">
+			<img class="poster" src="">
+		</div>
+		<div class="col-sm-8">
+			<h3>Plot: <span class="plot"></span></h3>
+			<h3>Actors: <span class="actors"></span></h3>
+			<h3>Director: <span class="director"></span></h3>
+			<h3>Writer: <span class="writer"></span></h3>
+		</div>
+	</div>
+
+	<h2>Ratings</h2>
+	<div class="row">
+		<div class="col-6">
+			<h3 class="first-source"></h3>
+			<h3 class="first-rating"></h3>
+		</div>
+		<div class="col-6">
+			<h3 class="second-source"></h3>
+			<h3 class="second-rating"></h3>
+		</div>
+	</div>
+</div>
 
 <% include partials/footer %>

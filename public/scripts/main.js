@@ -4,9 +4,8 @@ var apiUrl;
 
 function getDataFromApi(searchTerm, callback) {
   var settings = {
-    url: apiUrl,
+    url: apiUrl + searchTerm,
     data: {
-      s: searchTerm,
       r: 'json',
     },
     dataType: 'json',
@@ -33,7 +32,20 @@ function displayAllMovies(data) {
 }
 
 function displayOneMovie(data) {
-	console.log("deu boa");
+  if (data) {
+    $('.movie-title').text(data.Title);
+    $('.date-genre').text(data.Released + " - " + data.Genre);
+    $('.awards').text(data.Awards);
+    $('.poster').attr('src', data.Poster);
+    $('.plot').text(data.Plot);
+    $('.actors').text(data.Actors);
+    $('.director').text(data.Director);
+    $('.writer').text(data.Writer);
+    $('.first-source').text(data.Ratings[0].Source);
+    $('.first-rating').text(data.Ratings[0].Value);
+    $('.second-source').text(data.Ratings[1].Source);
+    $('.second-rating').text(data.Ratings[1].Value);
+  }
 }
 
 

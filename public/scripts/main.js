@@ -1,5 +1,6 @@
 var searchContainer = $(".search-container");
 var resultsContainer = $(".results-container");
+var detailsContainer = $(".details-container");
 var apiUrl;
 
 function getDataFromApi(searchTerm, callback) {
@@ -45,6 +46,8 @@ function displayOneMovie(data) {
     $('.first-rating').text(data.Ratings[0].Value);
     $('.second-source').text(data.Ratings[1].Source);
     $('.second-rating').text(data.Ratings[1].Value);
+
+    detailsContainer.addClass('d-block');
   }
 }
 

@@ -37,7 +37,13 @@ function displayOneMovie(data) {
     $('.movie-title').text(data.Title);
     $('.date-genre').text(data.Released + " - " + data.Genre);
     $('.awards').text(data.Awards);
-    $('.poster').attr('src', data.Poster);
+
+    if ((data.Poster) === 'N/A') {
+    	$('.poster').attr('src', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTmLEz6bbT5tcSe83bhjaOqxD6FZyhz6kKd3QcwuOCuvE0Mj9o3');
+    } else {
+    	$('.poster').attr('src', data.Poster);
+    }
+    
     $('.plot').text(data.Plot);
     $('.actors').text(data.Actors);
     $('.director').text(data.Director);

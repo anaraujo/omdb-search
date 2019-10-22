@@ -3,7 +3,7 @@
 
 html {
 	@include md-screen-down {
-		font-size: 12px;
+		font-size: 14px;
 	}
 }	
 
@@ -21,7 +21,7 @@ body {
 		width: 100%;
 
 		@include sm-screen-down {
-			width: 80%;
+			width: 70%;
 			margin: 0 auto 32px;
 		}
 	}
@@ -77,6 +77,10 @@ body {
 
 		h1 {
 		  margin-bottom: 56px;
+		  
+		  @include sm-screen-down {
+		  	font-size: 40px;
+		  }
 		}
 
 		form {
@@ -131,6 +135,16 @@ body {
 		display: none;
 		margin-top: 32px;
 
+		.content-btn {
+			margin-left: auto;
+			justify-content: center;
+			align-items: center;
+
+			@include sm-screen-down {
+				margin: 16px auto;
+			}
+		}
+
 		.first-row, 
 		.second-row {
 			display: flex;
@@ -145,7 +159,7 @@ body {
 				width: 30%;
 			}
 
-			@include md-screen-down {
+			@include sm-screen-down {
 				flex-direction: column;
 		    align-items: center;
   	    width: 70vw;
@@ -159,28 +173,27 @@ body {
 			}
 		}
 
-		.first-row {
-			.content-btn {
-				margin-left: auto;
-				justify-content: center;
-				align-items: center;
-			}
-		}
-
 		.second-row {
-			padding: 8px 0 32px;
+			padding: 8px 0 24px;
 		}
 
 		.third-row {
 			h5 {
-				margin-bottom: 24px; 
+				margin: 24px 0; 
+			}
+
+			.img-col,
+			.ratings-col {
+				@include sm-screen-down {
+					text-align: center;
+				}
 			}
 
 			.content-wrapper {
 				margin-bottom: 32px; 
 
 				@include sm-screen-down {
-					margin-bottom: 16px; 
+					margin-bottom: 8px; 
 				}
 
 				h6 {
